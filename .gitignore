@@ -1,0 +1,10 @@
+#ignore
+.idea
+CMakeLists.txt
+cmake-build-debug
+*.o
+*.gcda
+*.gcno
+*.gcov
+player
+playdom
