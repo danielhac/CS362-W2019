@@ -647,7 +647,7 @@ int smithyFunc(int *currentPlayer, struct gameState *state, int *handPos) {
     int i;
     //+3 Cards
     // Original below
-    //for (i = 0; i < 4; i++)
+    //for (i = 0; i < 3; i++)
 
     // Bug below
     for (i = 0; i < 4; i++)
