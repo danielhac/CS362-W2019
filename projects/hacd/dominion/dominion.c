@@ -646,7 +646,11 @@ int getCost(int cardNumber)
 int smithyFunc(int *currentPlayer, struct gameState *state, int *handPos) {
     int i;
     //+3 Cards
-    for (i = 0; i < 3; i++)
+    // Original below
+    //for (i = 0; i < 4; i++)
+
+    // Bug below
+    for (i = 0; i < 4; i++)
     {
         drawCard(*currentPlayer, state);
     }
@@ -671,7 +675,11 @@ int adventurerFunc(struct gameState *state, int *drawntreasure, int *currentPlay
             *z = *z+1;
         }
     }
-    while(*z-1>=0){
+    // Original below
+    //while(*z-1>=0){
+
+    // Bug below
+    while(*z-1>0){
         state->discard[*currentPlayer][state->discardCount[*currentPlayer]++]=temphand[*z-1]; // discard all cards in play that have been drawn
         *z=*z-1;
     }
@@ -687,7 +695,11 @@ int council_roomFunc(struct gameState *state, int *currentPlayer, int *handPos) 
     }
 
     //+1 Buy
-    state->numBuys++;
+    // Original below
+    //state->numBuys++;
+
+    // Bug below
+    state->numBuys = state->numBuys+3;
 
     //Each other player draws a card
     for (i = 0; i < state->numPlayers; i++)
@@ -712,7 +724,11 @@ int great_hallFunc(int *currentPlayer, struct gameState *state, int *handPos) {
     state->numActions++;
 
     //discard card from hand
-    discardCard(*handPos, *currentPlayer, state, 0);
+    // Original below
+    // discardCard(*handPos, *currentPlayer, state, 0);
+
+    // Bug below
+    discardCard(*handPos, *currentPlayer, state, 1);
     return 0;
 }
 
